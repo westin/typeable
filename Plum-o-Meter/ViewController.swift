@@ -40,6 +40,8 @@ class ViewController: UIViewController{
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePans:")
         view.addGestureRecognizer(gestureRecognizer)
         
+        
+        
     }
     
     
@@ -50,6 +52,7 @@ class ViewController: UIViewController{
             xChange = (translation.x)
             yChange = (translation.y)
             spot.length = round(100*sqrt((xChange * xChange) + (yChange * yChange)) / 100)
+            drawLetters("A", xPos: translation.x, yPos: translation.y)
             
             if (translation.x >= 0) {
                 if (translation.y >= translation.x) {
@@ -82,6 +85,10 @@ class ViewController: UIViewController{
         
     }
     
+    class letterBox {
+        var width = 50
+        var height = 50
+    }
     
     class Distance {
         var position = CGPoint()
@@ -89,9 +96,13 @@ class ViewController: UIViewController{
     }
     
     let spot = Distance()
+    let box = letterBox()
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
+        
+        
+        
         label.hidden = true
         
         if let touch = touches.first {
@@ -314,7 +325,15 @@ class CircleWithLabel: CAShapeLayer
                 size: CGSize(width: radius * 2, height: radius * 2))).CGPath
         
     }
+    
 }
+
+    func drawLetters(text:String, xPos:CGFloat, yPos:CGFloat) {
+        let label:UILabel = UILabel(frame: CGRectMake(xPos, yPos, 50, 50))
+        label.text = text
+    }
+
+
 
 // -------------
 
