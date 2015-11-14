@@ -9,12 +9,13 @@
 import UIKit
 import AudioToolbox // Needed Vibrate the iPhone
 
-class ViewController: UIViewController
-{
+class ViewController: UIViewController{
     
     let label = UILabel()
     
     var circles = [UITouch: CircleWithLabel]()
+    
+    @IBOutlet weak var swipeLabel: UILabel!
     
     override func viewDidLoad()
     {
@@ -22,12 +23,45 @@ class ViewController: UIViewController
         
         view.multipleTouchEnabled = true
         
-        label.text = "lay your plums on me."
+        label.text = "typeable"
         
         label.textAlignment = NSTextAlignment.Center
         
         view.addSubview(label)
+        
+        var leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        var rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        var upSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        var downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        
+        leftSwipe.direction = .Left
+        rightSwipe.direction = .Right
+        upSwipe.direction = .Up
+        downSwipe.direction = .Down
+        
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
+        view.addGestureRecognizer(upSwipe)
+        view.addGestureRecognizer(downSwipe)
     }
+    
+    func handleSwipes(sender:UISwipeGestureRecognizer) {
+        if (sender.direction == .Left) {
+            print("Swipe Left")
+        }
+        
+        if (sender.direction == .Right) {
+            print("Swipe Right")
+        }
+        if (sender.direction == .Up) {
+            print("Swipe Up")
+        }
+        
+        if (sender.direction == .Down) {
+            print("Swipe Down")
+        }
+    }
+
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
