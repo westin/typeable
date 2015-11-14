@@ -43,6 +43,10 @@ class ViewController: UIViewController{
         view.addGestureRecognizer(rightSwipe)
         view.addGestureRecognizer(upSwipe)
         view.addGestureRecognizer(downSwipe)
+        
+        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePans:")
+        view.addGestureRecognizer(gestureRecognizer)
+
     }
     
     func handleSwipes(sender:UISwipeGestureRecognizer) {
@@ -61,6 +65,38 @@ class ViewController: UIViewController{
             print("Swipe Down")
         }
     }
+
+    func handlePans(sender:UIPanGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.Began || sender.state == UIGestureRecognizerState.Changed {
+            
+            let translation = sender.translationInView(self.view);
+            // note: 'view' is optional and need to be unwrapped
+            
+            
+            //            sender.view!.center = CGPointMake(sender.view!.center.x + translation.x, sender.view!.center.y + translation.y)
+
+            if (translation.x >= 0) {
+                if (translation.y > translation.x) {
+                    print("Swipe Down")
+                }
+                if (translation.y < 0 && abs(translation.y) > translation.x) {
+                    print("Swipe Up")
+                }
+                else {print("Swipe Right")}
+            }
+            else {
+                if (translation.y > abs(translation.x)) {
+                    print("Swipe Down")
+                }
+                if (translation.y < 0 && abs(translation.y) > abs(translation.x)) {
+                    print("Swipe Up")
+                }
+                else {print("Swipe Left")}
+            }
+        }
+        
+    }
+        
 
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
