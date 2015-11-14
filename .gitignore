@@ -225,3 +225,5 @@ Plum-o-Meter.xcodeproj/project.xcworkspace/xcuserdata/Westin.xcuserdatad/UserInt
 Plum-o-Meter.xcodeproj/project.pbxproj
 
 .DS_Store
+
+*.xcuserstate
