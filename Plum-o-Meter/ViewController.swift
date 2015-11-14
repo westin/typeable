@@ -169,6 +169,13 @@ class CircleWithLabel: CAShapeLayer
     let text = CATextLayer()
     var myForce = 0.0
     var startTouchLocation = CGPoint()
+    var level: Int = 0 {
+        didSet {
+            if level != oldValue{
+                UIDevice.currentDevice().tapticEngine().actuateFeedback(UITapticEngineFeedbackPeek)
+            }
+        }
+    }
     
     override init()
     {
@@ -208,8 +215,8 @@ class CircleWithLabel: CAShapeLayer
         
         switch force * 100 {
             case 0:
-                UIDevice.currentDevice().tapticEngine().actuateFeedback(UITapticEngineFeedbackPeek)
-                text.string = String(format: "No level")
+                level = 0
+                text.string = String(format: "No Level")
             
                 let radius = CGFloat(0)
                 text.frame = CGRect(origin: location.offset(dx: 75, dy: -radius), size: CGSize(width: 150, height: 40))
@@ -219,7 +226,8 @@ class CircleWithLabel: CAShapeLayer
                         origin: location.offset(dx: radius, dy: radius),
                         size: CGSize(width: radius * 2, height: radius * 2))).CGPath
             case 0.1..<25:
-                text.string = String(format: "Level 1")
+                level = 1
+                text.string = String(format: "Level %d", level)
             
                 let radius = CGFloat(60 + (0.10 * 120))
                 text.frame = CGRect(origin: location.offset(dx: 75, dy: -radius), size: CGSize(width: 150, height: 40))
@@ -229,7 +237,8 @@ class CircleWithLabel: CAShapeLayer
                         origin: location.offset(dx: radius, dy: radius),
                         size: CGSize(width: radius * 2, height: radius * 2))).CGPath
             case 25..<50:
-                text.string = String(format: "Level 2")
+                level = 2
+                text.string = String(format: "Level %d", level)
             
                 let radius = CGFloat(60 + (0.40 * 120))
                 text.frame = CGRect(origin: location.offset(dx: 75, dy: -radius), size: CGSize(width: 150, height: 40))
@@ -239,7 +248,8 @@ class CircleWithLabel: CAShapeLayer
                         origin: location.offset(dx: radius, dy: radius),
                         size: CGSize(width: radius * 2, height: radius * 2))).CGPath
             case 50..<75:
-                text.string = String(format: "Level 3")
+                level = 3
+                text.string = String(format: "Level %d", level)
             
                 let radius = CGFloat(60 + (0.70 * 120))
                 text.frame = CGRect(origin: location.offset(dx: 75, dy: -radius), size: CGSize(width: 150, height: 40))
@@ -249,7 +259,8 @@ class CircleWithLabel: CAShapeLayer
                         origin: location.offset(dx: radius, dy: radius),
                         size: CGSize(width: radius * 2, height: radius * 2))).CGPath
             case 75..<200:
-                text.string = String(format: "Level 4")
+                level = 4
+                text.string = String(format: "Level %d", level)
                 
                 let radius = CGFloat(60 + (1 * 120))
                 
