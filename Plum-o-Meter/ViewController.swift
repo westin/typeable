@@ -21,7 +21,6 @@ class ViewController: UIViewController{
     
     var position = 0;
     
-    var letters = [1: ["up": "a", "farUp": "b", "right": "c", "farRight": "d", "down": "e", "farDown": "f", "left": "g", "farLeft": "h"],      2: ["up": "i", "farUp": "j", "right": "j", "farRight": "l", "down": "m", "farDown": "n", "left": "o", "farLeft": "p"],      3: ["up": "q", "farUp": "r", "right": "s", "farRight": "t", "down": "u", "farDown": "v", "left": "w", "farLeft": "x"],      4: ["up": "y", "farUp": "z", "right": "c", "farRight": "d", "down": "e", "farDown": "f", "left": "g", "farLeft": "h" ]]
     
     let label = UILabel()
     
@@ -62,27 +61,40 @@ class ViewController: UIViewController{
             if (translation.x >= 0) {
                 if (translation.y >= translation.x) {
                     print("Swipe Down")
+                    currentDirection = "down"
                     distLabel.text = ("Swiping Down \(spot.length) pixels")
                 }
                 if (translation.y < 0 && abs(translation.y) >= translation.x) {
                     print("Swipe Up")
+                    currentDirection = "up"
                     distLabel.text = ("Swiping Up \(spot.length) pixels")
                 }
-                if (translation.x > abs(translation.y)) {print("Swipe Right"); distLabel.text = ("Swiping Right \(spot.length) pixels")}
+                if (translation.x > abs(translation.y)) {
+                    print("Swipe Right")
+                    currentDirection = "right"
+                    distLabel.text = ("Swiping Right \(spot.length) pixels")
+                }
             }
             else {
                 if (translation.y >= abs(translation.x)) {
                     print("Swipe Down")
+                    currentDirection = "down"
                     distLabel.text = ("Swiping Down \(spot.length) pixels")
                 }
                 if (translation.y < 0 && abs(translation.y) > abs(translation.x)) {
                     print("Swipe Up")
+                    currentDirection = "up"
                     distLabel.text = ("Swiping Up \(spot.length) pixels")
                 }
-                if (abs(translation.x) > abs(translation.y)) {print("Swipe Left"); distLabel.text = ("Swiping Left \(spot.length) pixels")}
+                if (abs(translation.x) > abs(translation.y)) {
+                    print("Swipe Left")
+                    currentDirection = "left"
+                    distLabel.text = ("Swiping Left \(spot.length) pixels")
+                }
             }
-            
-            
+
+            // THIS TELLS US WHAT LETTER IS SELECTED
+            print(circles[circles.startIndex].1.getSelectedLetter(currentDirection, distance: Double(spot.length)))
             
 //            distLabel.text = ("\(spot.length)")
 //            print(spot.length)
@@ -250,6 +262,9 @@ class CircleWithLabel: CAShapeLayer
             }
         }
     }
+    var letters = [1: ["up": "a", "farUp": "b", "right": "c", "farRight": "d", "down": "e", "farDown": "f", "left": "g", "farLeft": "h"],      2: ["up": "i", "farUp": "j", "right": "j", "farRight": "l", "down": "m", "farDown": "n", "left": "o", "farLeft": "p"],      3: ["up": "q", "farUp": "r", "right": "s", "farRight": "t", "down": "u", "farDown": "v", "left": "w", "farLeft": "x"],      4: ["up": "y", "farUp": "z", "right": "c", "farRight": "d", "down": "e", "farDown": "f", "left": "g", "farLeft": "h" ]]
+    
+    let innerLettersBoundary = 100.0
     
     override init()
     {
@@ -280,6 +295,48 @@ class CircleWithLabel: CAShapeLayer
         {
             fillColor = isMax ? UIColor.whiteColor().CGColor : nil
         }
+    }
+    
+    func getSelectedLetter(direction: String, distance: Double) -> String {
+        
+        let levelLetters = letters[level]
+        
+        if(direction == "up"){
+            if (distance > innerLettersBoundary){
+                return (levelLetters?["farUp"])!
+            }
+            else{
+                return (levelLetters?["up"])!
+            }
+            
+        }
+        if(direction == "right"){
+            if (distance > innerLettersBoundary){
+                return (levelLetters?["farRight"])!
+            }
+            else{
+                return (levelLetters?["right"])!
+            }
+        }
+        if(direction == "down"){
+            if (distance > innerLettersBoundary){
+                return (levelLetters?["farDown"])!
+            }
+            else{
+                return (levelLetters?["down"])!
+            }
+            
+        }
+        if(direction == "left"){
+            if (distance > innerLettersBoundary){
+                return (levelLetters?["farLeft"])!
+            }
+            else{
+                return (levelLetters?["left"])!
+            }
+        }
+        
+        return "Uh-oh"
     }
     
     func drawAtPoint(location: CGPoint, force: CGFloat)
