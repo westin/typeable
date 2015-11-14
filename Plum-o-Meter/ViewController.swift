@@ -74,6 +74,7 @@ class ViewController: UIViewController{
             circle.drawAtPoint(touch.locationInView(view),
                 force: touch.force / touch.maximumPossibleForce)
             
+//            circle.myForce = Double(touch.force / touch.maximumPossibleForce)
             
             circles[touch] = circle
             view.layer.addSublayer(circle)
@@ -90,6 +91,11 @@ class ViewController: UIViewController{
             
             circle.drawAtPoint(touch.locationInView(view),
                 force: touch.force / touch.maximumPossibleForce)
+
+            circle.myForce = Double(touch.force / touch.maximumPossibleForce)
+            
+            print(circle.myForce)
+            
         }
         
         highlightHeaviest()
@@ -156,6 +162,7 @@ class ViewController: UIViewController{
 class CircleWithLabel: CAShapeLayer
 {
     let text = CATextLayer()
+    var myForce = 0.0;
     
     override init()
     {
@@ -166,7 +173,7 @@ class CircleWithLabel: CAShapeLayer
         addSublayer(text)
         
         strokeColor = UIColor.blueColor().CGColor
-        lineWidth = 5
+        lineWidth = 1
         fillColor = nil
     }
     
@@ -184,39 +191,72 @@ class CircleWithLabel: CAShapeLayer
     {
         didSet
         {
-            fillColor = isMax ? UIColor.yellowColor().CGColor : nil
+            fillColor = isMax ? UIColor.whiteColor().CGColor : nil
         }
     }
     
     func drawAtPoint(location: CGPoint, force: CGFloat)
     {
-        let radius = 120 + (force * 120)
-        
-        path = UIBezierPath(
-            ovalInRect: CGRect(
-                origin: location.offset(dx: radius, dy: radius),
-                size: CGSize(width: radius * 2, height: radius * 2))).CGPath
         
         text.string = String(format: "%.1f%%", force * 100)
         
         switch force * 100 {
             case 0:
                 text.string = String(format: "No level")
+            
+                let radius = CGFloat(0)
+                text.frame = CGRect(origin: location.offset(dx: 75, dy: -radius), size: CGSize(width: 150, height: 40))
+                
+                path = UIBezierPath(
+                    ovalInRect: CGRect(
+                        origin: location.offset(dx: radius, dy: radius),
+                        size: CGSize(width: radius * 2, height: radius * 2))).CGPath
             case 0.1..<25:
                 text.string = String(format: "Level 1")
-        case 25..<50:
-            text.string = String(format: "Level 2")
-        case 50..<75:
-            text.string = String(format: "Level 3")
-        case 75..<200:
-            text.string = String(format: "Level 4")
-            print(force * 100)
-            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-        default:
-            text.string = String(format: "No level")
+            
+                let radius = CGFloat(60 + (0.10 * 120))
+                text.frame = CGRect(origin: location.offset(dx: 75, dy: -radius), size: CGSize(width: 150, height: 40))
+                
+                path = UIBezierPath(
+                    ovalInRect: CGRect(
+                        origin: location.offset(dx: radius, dy: radius),
+                        size: CGSize(width: radius * 2, height: radius * 2))).CGPath
+            case 25..<50:
+                text.string = String(format: "Level 2")
+            
+                let radius = CGFloat(60 + (0.40 * 120))
+                text.frame = CGRect(origin: location.offset(dx: 75, dy: -radius), size: CGSize(width: 150, height: 40))
+                
+                path = UIBezierPath(
+                    ovalInRect: CGRect(
+                        origin: location.offset(dx: radius, dy: radius),
+                        size: CGSize(width: radius * 2, height: radius * 2))).CGPath
+            case 50..<75:
+                text.string = String(format: "Level 3")
+            
+                let radius = CGFloat(60 + (0.70 * 120))
+                text.frame = CGRect(origin: location.offset(dx: 75, dy: -radius), size: CGSize(width: 150, height: 40))
+                
+                path = UIBezierPath(
+                    ovalInRect: CGRect(
+                        origin: location.offset(dx: radius, dy: radius),
+                        size: CGSize(width: radius * 2, height: radius * 2))).CGPath
+            case 75..<200:
+                text.string = String(format: "Level 4")
+                
+                let radius = CGFloat(60 + (1 * 120))
+                
+                path = UIBezierPath(
+                    ovalInRect: CGRect(
+                        origin: location.offset(dx: radius, dy: radius),
+                        size: CGSize(width: radius * 2, height: radius * 2))).CGPath
+
+                print(force * 100)
+                AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            default:
+                text.string = String(format: "No level")
         }
         
-        text.frame = CGRect(origin: location.offset(dx: 75, dy: -radius), size: CGSize(width: 150, height: 40))
     }
 }
 
