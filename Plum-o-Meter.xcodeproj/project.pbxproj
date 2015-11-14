@@ -19,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		078315EE1BF7CF4900B7CF77 /* Plum-o-Meter-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Plum-o-Meter-Bridging-Header.h"; path = "Headers/Plum-o-Meter-Bridging-Header.h"; sourceTree = "<group>"; };
 		3ECBB7CF1BDBB8AA00328B67 /* Plum-o-Meter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plum-o-Meter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ECBB7D21BDBB8AA00328B67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ECBB7D41BDBB8AA00328B67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,7 +34,6 @@
 		67DA1FC41BF71DBB005014CD /* UITapticEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UITapticEngine.h; path = Headers/UITapticEngine.h; sourceTree = "<group>"; };
 		67DA1FC71BF71E1F005014CD /* TapticEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TapticEngine.h; path = Taptic/TapticEngine.h; sourceTree = "<group>"; };
 		67DA1FC81BF71E1F005014CD /* TapticEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TapticEngine.m; path = Taptic/TapticEngine.m; sourceTree = "<group>"; };
-		67DA1FC91BF71E1F005014CD /* ViewControllerPreview-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ViewControllerPreview-Bridging-Header.h"; path = "Taptic/ViewControllerPreview-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +86,7 @@
 				67DA1FC21BF71DBB005014CD /* UIDevice+Private.h */,
 				67DA1FC31BF71DBB005014CD /* UIDevice+Private.m */,
 				67DA1FC41BF71DBB005014CD /* UITapticEngine.h */,
+				078315EE1BF7CF4900B7CF77 /* Plum-o-Meter-Bridging-Header.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -95,7 +96,6 @@
 			children = (
 				67DA1FC71BF71E1F005014CD /* TapticEngine.h */,
 				67DA1FC81BF71E1F005014CD /* TapticEngine.m */,
-				67DA1FC91BF71E1F005014CD /* ViewControllerPreview-Bridging-Header.h */,
 			);
 			name = Taptic;
 			sourceTree = "<group>";
@@ -292,11 +292,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Plum-o-Meter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Headers/Plum-o-Meter-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -306,11 +308,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Plum-o-Meter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Headers/Plum-o-Meter-Bridging-Header.h";
 			};
 			name = Release;
 		};
