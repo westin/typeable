@@ -11,6 +11,14 @@ import AudioToolbox // Needed Vibrate the iPhone
 
 class ViewController: UIViewController{
     
+    @IBOutlet weak var distLabel: UILabel!
+    var xPos = CGPoint().x
+    var yPos = CGPoint().y
+    var xChange = CGFloat()
+    var yChange = CGFloat()
+    
+    var position = 0;
+    
     let label = UILabel()
     
     var circles = [UITouch: CircleWithLabel]()
@@ -34,8 +42,10 @@ class ViewController: UIViewController{
 
     }
 
+
     func handlePans(sender:UIPanGestureRecognizer) {
         if sender.state == UIGestureRecognizerState.Began || sender.state == UIGestureRecognizerState.Changed {
+            
             
             let translation = sender.translationInView(self.view);
             // note: 'view' is optional and need to be unwrapped
@@ -61,15 +71,34 @@ class ViewController: UIViewController{
                 }
                 else {print("Swipe Left")}
             }
+            
+            
+            xChange = (translation.x)
+            yChange = (translation.y)
+            spot.length = sqrt((xChange * xChange) + (yChange * yChange))
+            distLabel.text = ("\(spot.length)")
+            print(spot.length)
         }
         
     }
         
 
+    class Distance {
+        var position = CGPoint()
+        var length = CGFloat()
+    }
+    
+    let spot = Distance()
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
         label.hidden = true
+        
+        if let touch = touches.first {
+            let place = touch.locationInView(view)
+            spot.position = place
+        }
+    
         
         for touch in touches
         {
@@ -90,6 +119,18 @@ class ViewController: UIViewController{
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
+        
+//        if let touch = touches.first {
+//            xPos = touch.locationInView(view).x
+//            yPos = touch.locationInView(view).y
+//            print(xPos, yPos)
+//            
+//            xChange = (xPos - spot.position.x)
+//            yChange = (yPos - spot.position.y)
+//            spot.length = sqrt((xChange * xChange) + (yChange * yChange))
+//            distLabel.text = ("\(spot.length)")
+//        }
+        
         for touch in touches where circles[touch] != nil
         {
             let circle = circles[touch]!
@@ -99,11 +140,13 @@ class ViewController: UIViewController{
 
             circle.myForce = Double(touch.force / touch.maximumPossibleForce)
             
-            print(circle.myForce)
+//            print(circle.myForce)
             
         }
         
         highlightHeaviest()
+        
+    
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
@@ -117,10 +160,14 @@ class ViewController: UIViewController{
         }
         
         highlightHeaviest()
+        
     }
     
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
     {
+        
+        
+
         guard let touches = touches else
         {
             return

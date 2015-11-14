@@ -96,7 +96,7 @@
 				TargetAttributes = {
 					3ECBB7CE1BDBB8AA00328B67 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = P7R37A8B94;
+						DevelopmentTeam = 27TDYN2MG8;
 					};
 				};
 			};
@@ -254,7 +254,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Plum-o-Meter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeable;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableNick;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -268,7 +268,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Plum-o-Meter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeable;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableNick;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
