@@ -71,6 +71,13 @@ class ViewController: UIViewController{
     {
         label.hidden = true
         
+        // this clears out all other circle objects on the screen
+        circles.forEach
+        {
+            circles.removeValueForKey($0.0)
+            $0.1.removeFromSuperlayer()
+        }
+
         for touch in touches
         {
             let circle = CircleWithLabel()
@@ -108,17 +115,19 @@ class ViewController: UIViewController{
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
-        for touch in touches where circles[touch] != nil
-        {
-            let circle = circles[touch]!
-            
-            circles.removeValueForKey(touch)
-            circle.removeFromSuperlayer()
-        }
+//        for touch in touches where circles[touch] != nil
+//        {
+//            let circle = circles[touch]!
+//            
+//            circles.removeValueForKey(touch)
+//            circle.removeFromSuperlayer()
+//        }
         
         highlightHeaviest()
     }
+
     
+    // this part gets called immeditely after we notice you're swiping in a certain direction
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
     {
         guard let touches = touches else
@@ -130,7 +139,7 @@ class ViewController: UIViewController{
         {
             let circle = circles[touch]!
             
-            circle.removeFromSuperlayer()
+//            circle.removeFromSuperlayer()
         }
     }
     
