@@ -390,13 +390,15 @@ class CircleWithLabel: CAShapeLayer
     
 }
 
+    
+
     func drawLetters(text:String, xPos:CGFloat, yPos:CGFloat) {
         let label:UILabel = UILabel(frame: CGRectMake(xPos, yPos, 50.0, 50.0))
         label.center = CGPointMake(160, 284)
         label.backgroundColor = UIColor.redColor()
         label.text = text
-        label.textRectForBounds(CGRectMake(xPos, yPos, 50.0, 50.0), limitedToNumberOfLines: 1)
-        self.view.addSubview(label)
+//        label.textRectForBounds(CGRectMake(xPos, yPos, 50.0, 50.0), limitedToNumberOfLines: 1)
+        UIViewController().view.addSubview(label)
     }
 
 var letter = drawLetters("A", xPos:100.0, yPos:100.0)
