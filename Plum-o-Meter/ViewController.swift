@@ -240,6 +240,7 @@ class CircleWithLabel: CAShapeLayer
         
         switch force * 100 {
             case 0:
+                UIDevice.currentDevice().tapticEngine().actuateFeedback(UITapticEngineFeedbackPeek)
                 text.string = String(format: "No level")
             
                 let radius = CGFloat(0)

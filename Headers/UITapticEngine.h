@@ -1,6 +1,8 @@
 static int const UITapticEngineFeedbackPeek = 1001;
 static int const UITapticEngineFeedbackPop = 1002;
 
+#include <UIKit/UIKit.h>
+
 @interface UITapticEngine : NSObject
 
 - (void)actuateFeedback:(int)arg1;
