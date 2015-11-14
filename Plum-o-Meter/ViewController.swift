@@ -17,6 +17,8 @@ class ViewController: UIViewController{
     var xChange = CGFloat()
     var yChange = CGFloat()
     
+    
+    
     var position = 0;
     
     var letters = [1: ["up": "a", "farUp": "b", "right": "c", "farRight": "d", "down": "e", "farDown": "f", "left": "g", "farLeft": "h"],      2: ["up": "i", "farUp": "j", "right": "j", "farRight": "l", "down": "m", "farDown": "n", "left": "o", "farLeft": "p"],      3: ["up": "q", "farUp": "r", "right": "s", "farRight": "t", "down": "u", "farDown": "v", "left": "w", "farLeft": "x"],      4: ["up": "y", "farUp": "z", "right": "c", "farRight": "d", "down": "e", "farDown": "f", "left": "g", "farLeft": "h" ]]
@@ -24,6 +26,7 @@ class ViewController: UIViewController{
     let label = UILabel()
     
     var circles = [UITouch: CircleWithLabel]()
+    
     
     @IBOutlet weak var swipeLabel: UILabel!
     
@@ -54,7 +57,7 @@ class ViewController: UIViewController{
             xChange = (translation.x)
             yChange = (translation.y)
             spot.length = round(100*sqrt((xChange * xChange) + (yChange * yChange)) / 100)
-            drawLetters("A", xPos: translation.x, yPos: translation.y)
+            
             
             if (translation.x >= 0) {
                 if (translation.y >= translation.x) {
@@ -331,11 +334,15 @@ class CircleWithLabel: CAShapeLayer
 }
 
     func drawLetters(text:String, xPos:CGFloat, yPos:CGFloat) {
-        let label:UILabel = UILabel(frame: CGRectMake(xPos, yPos, 50, 50))
+        let label:UILabel = UILabel(frame: CGRectMake(xPos, yPos, 50.0, 50.0))
+        label.center = CGPointMake(160, 284)
+        label.backgroundColor = UIColor.redColor()
         label.text = text
+        label.textRectForBounds(CGRectMake(xPos, yPos, 50.0, 50.0), limitedToNumberOfLines: 1)
+        self.view.addSubview(label)
     }
 
-
+var letter = drawLetters("A", xPos:100.0, yPos:100.0)
 
 // -------------
 
