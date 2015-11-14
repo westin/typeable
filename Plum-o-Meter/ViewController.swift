@@ -46,38 +46,38 @@ class ViewController: UIViewController{
     func handlePans(sender:UIPanGestureRecognizer) {
         if sender.state == UIGestureRecognizerState.Began || sender.state == UIGestureRecognizerState.Changed {
             
-            
             let translation = sender.translationInView(self.view);
-            // note: 'view' is optional and need to be unwrapped
-            
-            
-            //            sender.view!.center = CGPointMake(sender.view!.center.x + translation.x, sender.view!.center.y + translation.y)
+            xChange = (translation.x)
+            yChange = (translation.y)
+            spot.length = round(100*sqrt((xChange * xChange) + (yChange * yChange)) / 100)
             
             if (translation.x >= 0) {
-                if (translation.y >= 0 && translation.y >= translation.x) {
+                if (translation.y >= translation.x) {
                     print("Swipe Down")
+                    distLabel.text = ("Swiping Down \(spot.length) pixels")
                 }
                 if (translation.y < 0 && abs(translation.y) >= translation.x) {
                     print("Swipe Up")
+                    distLabel.text = ("Swiping Up \(spot.length) pixels")
                 }
-                else {print("Swipe Right")}
+                if (translation.x > abs(translation.y)) {print("Swipe Right"); distLabel.text = ("Swiping Right \(spot.length) pixels")}
             }
             else {
-                if (translation.y >= 0 && translation.y >= abs(translation.x)) {
+                if (translation.y >= abs(translation.x)) {
                     print("Swipe Down")
+                    distLabel.text = ("Swiping Down \(spot.length) pixels")
                 }
                 if (translation.y < 0 && abs(translation.y) > abs(translation.x)) {
                     print("Swipe Up")
+                    distLabel.text = ("Swiping Up \(spot.length) pixels")
                 }
-                else {print("Swipe Left")}
+                if (abs(translation.x) > abs(translation.y)) {print("Swipe Left"); distLabel.text = ("Swiping Left \(spot.length) pixels")}
             }
             
             
-            xChange = (translation.x)
-            yChange = (translation.y)
-            spot.length = sqrt((xChange * xChange) + (yChange * yChange))
-            distLabel.text = ("\(spot.length)")
-            print(spot.length)
+            
+//            distLabel.text = ("\(spot.length)")
+//            print(spot.length)
         }
         
     }
