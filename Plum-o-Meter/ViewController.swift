@@ -70,6 +70,7 @@ class ViewController: UIViewController{
         for touch in touches
         {
             let circle = CircleWithLabel()
+            circle.startTouchLocation = touch.locationInView(view)
             
             circle.drawAtPoint(touch.locationInView(view),
                 force: touch.force / touch.maximumPossibleForce)
@@ -89,7 +90,7 @@ class ViewController: UIViewController{
         {
             let circle = circles[touch]!
             
-            circle.drawAtPoint(touch.locationInView(view),
+            circle.drawAtPoint(circle.startTouchLocation,
                 force: touch.force / touch.maximumPossibleForce)
 
             circle.myForce = Double(touch.force / touch.maximumPossibleForce)
@@ -162,7 +163,8 @@ class ViewController: UIViewController{
 class CircleWithLabel: CAShapeLayer
 {
     let text = CATextLayer()
-    var myForce = 0.0;
+    var myForce = 0.0
+    var startTouchLocation = CGPoint()
     
     override init()
     {
