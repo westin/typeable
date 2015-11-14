@@ -29,41 +29,9 @@ class ViewController: UIViewController{
         
         view.addSubview(label)
         
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
-        let upSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
-        let downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
-        
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
-        upSwipe.direction = .Up
-        downSwipe.direction = .Down
-        
-        view.addGestureRecognizer(leftSwipe)
-        view.addGestureRecognizer(rightSwipe)
-        view.addGestureRecognizer(upSwipe)
-        view.addGestureRecognizer(downSwipe)
-        
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePans:")
         view.addGestureRecognizer(gestureRecognizer)
 
-    }
-    
-    func handleSwipes(sender:UISwipeGestureRecognizer) {
-        if (sender.direction == .Left) {
-            print("Swipe Left")
-        }
-        
-        if (sender.direction == .Right) {
-            print("Swipe Right")
-        }
-        if (sender.direction == .Up) {
-            print("Swipe Up")
-        }
-        
-        if (sender.direction == .Down) {
-            print("Swipe Down")
-        }
     }
 
     func handlePans(sender:UIPanGestureRecognizer) {
