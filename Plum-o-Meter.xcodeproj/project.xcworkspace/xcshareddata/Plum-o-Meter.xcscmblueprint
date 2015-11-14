@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "720CE175E9BBD4B7EE9753D81950BF45CCBC4F1D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8D5B92E1AFA5A278924B58C7B1C0C85D46D51A2A" : 0,
+    "720CE175E9BBD4B7EE9753D81950BF45CCBC4F1D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B02E4EAD-4E54-4164-9C0B-3A09333F855B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8D5B92E1AFA5A278924B58C7B1C0C85D46D51A2A" : "",
+    "720CE175E9BBD4B7EE9753D81950BF45CCBC4F1D" : "typeable\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Plum-o-Meter",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Plum-o-Meter.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:westin\/typeable.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "720CE175E9BBD4B7EE9753D81950BF45CCBC4F1D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/profh\/BreadExpress_Phase_5_Starter.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8D5B92E1AFA5A278924B58C7B1C0C85D46D51A2A"
+    }
+  ]
+}
