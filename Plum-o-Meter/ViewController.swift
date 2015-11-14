@@ -54,16 +54,16 @@ class ViewController: UIViewController{
             //            sender.view!.center = CGPointMake(sender.view!.center.x + translation.x, sender.view!.center.y + translation.y)
 
             if (translation.x >= 0) {
-                if (translation.y > translation.x) {
+                if (translation.y >= 0 && translation.y >= translation.x) {
                     print("Swipe Down")
                 }
-                if (translation.y < 0 && abs(translation.y) > translation.x) {
+                if (translation.y < 0 && abs(translation.y) >= translation.x) {
                     print("Swipe Up")
                 }
                 else {print("Swipe Right")}
             }
             else {
-                if (translation.y > abs(translation.x)) {
+                if (translation.y >= 0 && translation.y >= abs(translation.x)) {
                     print("Swipe Down")
                 }
                 if (translation.y < 0 && abs(translation.y) > abs(translation.x)) {
