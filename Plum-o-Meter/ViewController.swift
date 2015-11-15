@@ -18,7 +18,7 @@ class ViewController: UIViewController{
     var yChange = CGFloat()
     
     var position = 0;
-    
+
     
     let label = UILabel()
     
@@ -29,6 +29,9 @@ class ViewController: UIViewController{
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        
+        
         
         view.multipleTouchEnabled = true
         
