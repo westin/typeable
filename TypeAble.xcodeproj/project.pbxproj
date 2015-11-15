@@ -49,7 +49,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3ECBB7CF1BDBB8AA00328B67 /* Plum-o-Meter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plum-o-Meter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ECBB7CF1BDBB8AA00328B67 /* TypeAble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypeAble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ECBB7D21BDBB8AA00328B67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ECBB7D41BDBB8AA00328B67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3ECBB7D71BDBB8AA00328B67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 				67DA1FC11BF71DAB005014CD /* Headers */,
 				67DA1FBD1BF71CCC005014CD /* Headers */,
 				67DA1FBE1BF71CCC005014CD /* Taptic */,
-				3ECBB7D11BDBB8AA00328B67 /* Plum-o-Meter */,
+				3ECBB7D11BDBB8AA00328B67 /* TypeAble */,
 				67DA1FD11BF7E0E3005014CD /* ableBoard */,
 				3ECBB7D01BDBB8AA00328B67 /* Products */,
 			);
@@ -103,13 +103,13 @@
 		3ECBB7D01BDBB8AA00328B67 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3ECBB7CF1BDBB8AA00328B67 /* Plum-o-Meter.app */,
+				3ECBB7CF1BDBB8AA00328B67 /* TypeAble.app */,
 				67DA1FD01BF7E0E3005014CD /* ableBoard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3ECBB7D11BDBB8AA00328B67 /* Plum-o-Meter */ = {
+		3ECBB7D11BDBB8AA00328B67 /* TypeAble */ = {
 			isa = PBXGroup;
 			children = (
 				3ECBB7D21BDBB8AA00328B67 /* AppDelegate.swift */,
@@ -119,6 +119,7 @@
 				3ECBB7DB1BDBB8AA00328B67 /* LaunchScreen.storyboard */,
 				3ECBB7DE1BDBB8AA00328B67 /* Info.plist */,
 			);
+			name = TypeAble;
 			path = "Plum-o-Meter";
 			sourceTree = "<group>";
 		};
@@ -154,9 +155,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3ECBB7CE1BDBB8AA00328B67 /* Plum-o-Meter */ = {
+		3ECBB7CE1BDBB8AA00328B67 /* TypeAble */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3ECBB7E11BDBB8AA00328B67 /* Build configuration list for PBXNativeTarget "Plum-o-Meter" */;
+			buildConfigurationList = 3ECBB7E11BDBB8AA00328B67 /* Build configuration list for PBXNativeTarget "TypeAble" */;
 			buildPhases = (
 				3ECBB7CB1BDBB8AA00328B67 /* Sources */,
 				3ECBB7CC1BDBB8AA00328B67 /* Frameworks */,
@@ -168,9 +169,9 @@
 			dependencies = (
 				67DA1FD61BF7E0E3005014CD /* PBXTargetDependency */,
 			);
-			name = "Plum-o-Meter";
+			name = TypeAble;
 			productName = "Plum-o-Meter";
-			productReference = 3ECBB7CF1BDBB8AA00328B67 /* Plum-o-Meter.app */;
+			productReference = 3ECBB7CF1BDBB8AA00328B67 /* TypeAble.app */;
 			productType = "com.apple.product-type.application";
 		};
 		67DA1FCF1BF7E0E3005014CD /* ableBoard */ = {
@@ -215,7 +216,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3ECBB7CA1BDBB8AA00328B67 /* Build configuration list for PBXProject "Plum-o-Meter" */;
+			buildConfigurationList = 3ECBB7CA1BDBB8AA00328B67 /* Build configuration list for PBXProject "TypeAble" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -228,7 +229,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3ECBB7CE1BDBB8AA00328B67 /* Plum-o-Meter */,
+				3ECBB7CE1BDBB8AA00328B67 /* TypeAble */,
 				67DA1FCF1BF7E0E3005014CD /* ableBoard */,
 			);
 		};
@@ -405,9 +406,9 @@
 				INFOPLIST_FILE = "Plum-o-Meter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableNick;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TypeAble;
 				PROVISIONING_PROFILE = "";
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Taptic/Plum-o-Meter-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Taptic/TypeAble-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -423,9 +424,9 @@
 				INFOPLIST_FILE = "Plum-o-Meter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableNick;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TypeAble;
 				PROVISIONING_PROFILE = "";
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Taptic/Plum-o-Meter-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Taptic/TypeAble-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -442,7 +443,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Taptic/Plum-o-Meter-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Taptic/TypeAble-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -459,14 +460,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Taptic/Plum-o-Meter-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Taptic/TypeAble-Bridging-Header.h";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3ECBB7CA1BDBB8AA00328B67 /* Build configuration list for PBXProject "Plum-o-Meter" */ = {
+		3ECBB7CA1BDBB8AA00328B67 /* Build configuration list for PBXProject "TypeAble" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3ECBB7DF1BDBB8AA00328B67 /* Debug */,
@@ -475,7 +476,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3ECBB7E11BDBB8AA00328B67 /* Build configuration list for PBXNativeTarget "Plum-o-Meter" */ = {
+		3ECBB7E11BDBB8AA00328B67 /* Build configuration list for PBXNativeTarget "TypeAble" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3ECBB7E21BDBB8AA00328B67 /* Debug */,
