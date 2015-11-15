@@ -21,8 +21,6 @@ class KeyboardViewController: UIInputViewController {
     
     var position = 0;
     
-    var swipeFingers = 0
-    
     let label = UILabel()
     
     var circles = [UITouch: CircleWithLabel]()
@@ -96,8 +94,6 @@ class KeyboardViewController: UIInputViewController {
             yChange = (translation.y)
             spot.length = round(100*sqrt((xChange * xChange) + (yChange * yChange)) / 100)
             
-            swipeFingers = sender.numberOfTouches()
-            
             if (translation.x >= 0) {
                 if (translation.y >= translation.x) {
 //                    print("Swipe Down")
@@ -141,14 +137,14 @@ class KeyboardViewController: UIInputViewController {
         if sender.state == UIGestureRecognizerState.Ended {
             keyPressed(circles[circles.startIndex].1.getSelectedLetter(currentDirection, distance: Double(spot.length)))
         }
-        
-        func handlePinches(sender: UIPinchGestureRecognizer) {
-            if sender.state == UIGestureRecognizerState.Ended {
-                (textDocumentProxy as UIKeyInput).deleteBackward()
-            }
-        }
 
         
+    }
+    
+    func handlePinches(sender:UIPinchGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.Ended {
+            (textDocumentProxy as UIKeyInput).deleteBackward()
+        }
     }
     
     func keyPressed(letter: AnyObject?) {
