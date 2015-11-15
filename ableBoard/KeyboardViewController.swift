@@ -282,10 +282,10 @@ class KeyboardViewController: UIInputViewController {
             }).first?.0
         }
         
-        circles.forEach
-            {
-                $0.1.isMax = $0.0 == getMaxTouch()
-        }
+//        circles.forEach
+//            {
+//                $0.1.isMax = $0.0 == getMaxTouch()
+//        }
     }
     
     //    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask
@@ -341,13 +341,13 @@ class CircleWithLabel: CAShapeLayer
         fatalError("init(coder:) has not been implemented")
     }
     
-    var isMax: Bool = false
-        {
-        didSet
-        {
-            fillColor = isMax ? UIColor.whiteColor().CGColor : nil
-        }
-    }
+//    var isMax: Bool = false
+//        {
+//        didSet
+//        {
+//            fillColor = isMax ? UIColor.whiteColor().CGColor : nil
+//        }
+//    }
     
     func getSelectedLetter(direction: String, distance: Double) -> String {
         
