@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox // Needed Vibrate the iPhone
+import AVFoundation
 
 class ViewController: UIViewController{
     
@@ -55,6 +56,12 @@ class ViewController: UIViewController{
         
         var letter = drawLetters("A", xPos: 100.0, yPos: 100.0)
         
+        
+        let speak = AVSpeechUtterance(string: "type able")
+        speak.voice = AVSpeechSynthesisVoice(language: "en-US")
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speakUtterance(speak)
+    
         
         
     }
@@ -257,6 +264,10 @@ class ViewController: UIViewController{
     {
         label.frame = view.bounds
     }
+    
+    
+    
+    
 }
 
 // -------------
