@@ -179,7 +179,7 @@ class KeyboardViewController: UIInputViewController {
                 force: touch.force / touch.maximumPossibleForce)
             
             //            circle.myForce = Double(touch.force / touch.maximumPossibleForce)
-            
+           
             circles[touch] = circle
             view.layer.addSublayer(circle)
         }
@@ -207,7 +207,6 @@ class KeyboardViewController: UIInputViewController {
             
             circle.drawAtPoint(circle.startTouchLocation,
                 force: touch.force / touch.maximumPossibleForce)
-            
             circle.myForce = Double(touch.force / touch.maximumPossibleForce)
             
             //            print(circle.myForce)
@@ -314,7 +313,9 @@ class CircleWithLabel: CAShapeLayer
             }
         }
     }
-    var letters = [1: ["up": "a", "farUp": "b", "right": "c", "farRight": "d", "down": "e", "farDown": "f", "left": "g", "farLeft": "h"],      2: ["up": "i", "farUp": "j", "right": "j", "farRight": "l", "down": "m", "farDown": "n", "left": "o", "farLeft": "p"],      3: ["up": "q", "farUp": "r", "right": "s", "farRight": "t", "down": "u", "farDown": "v", "left": "w", "farLeft": "x"],      4: ["up": "y", "farUp": "z", "right": "c", "farRight": "d", "down": "e", "farDown": "f", "left": "g", "farLeft": "h" ]]
+    var letters = [1: ["up": "a", "farUp": "b", "right": "c", "farRight": "d", "down": "e", "farDown": "f", "left": "g", "farLeft": "h"],      2: ["up": "i", "farUp": "j", "right": "k", "farRight": "l", "down": "m", "farDown": "n", "left": "o", "farLeft": "p"],      3: ["up": "q", "farUp": "r", "right": "s", "farRight": "t", "down": "u", "farDown": "v", "left": "w", "farLeft": "x"],      4: ["up": "y", "farUp": "z", "right": "c", "farRight": "d", "down": "e", "farDown": "f", "left": "g", "farLeft": "h" ]]
+    
+    var rawLetters = [1: ["a", "b", "c", "d", "e", "f", "g", "h"],      2: ["i",  "j",  "k",  "l", "m",  "n", "o",  "p"],      3: ["q", "r", "s", "t",  "u",  "v",  "w",  "x"],      4: ["y",  "z", "c", "d",  "e",  "f", "g",  "h" ]]
     
     let innerLettersBoundary = 100.0
     
@@ -396,6 +397,56 @@ class CircleWithLabel: CAShapeLayer
         return "Uh-oh"
     }
     
+    let text1 = CATextLayer()
+    let text2 = CATextLayer()
+    let text3 = CATextLayer()
+    let text4 = CATextLayer()
+    let text5 = CATextLayer()
+    let text6 = CATextLayer()
+    let text7 = CATextLayer()
+    let text8 = CATextLayer()
+    
+    
+    func drawLetter(letter:Array<String>, position:CGPoint) {
+        var level = CGFloat(1)
+        var shift = 0
+
+        CircleWithLabel().text1.string = letter[0+shift]
+        CircleWithLabel().text1.fontSize = CGFloat(20)
+        CircleWithLabel().text1.frame = CGRect(x: position.x, y: position.y - CGFloat(75)*level, width: 100, height: 100)
+        addSublayer(CircleWithLabel().text1)
+        CircleWithLabel().text2.string = letter[2+shift]
+        CircleWithLabel().text2.fontSize = CGFloat(20)
+        CircleWithLabel().text2.frame = CGRect(x: position.x + 75*level, y: position.y, width: 100, height: 100)
+        addSublayer(CircleWithLabel().text2)
+        CircleWithLabel().text3.string = letter[4+shift]
+        CircleWithLabel().text3.fontSize = CGFloat(20)
+        CircleWithLabel().text3.frame = CGRect(x: position.x, y: position.y + CGFloat(75)*level, width: 100, height: 100)
+        addSublayer(CircleWithLabel().text3)
+        CircleWithLabel().text4.string = letter[6+shift]
+        CircleWithLabel().text4.fontSize = CGFloat(20)
+        CircleWithLabel().text4.frame = CGRect(x: position.x - 75*level, y: position.y, width: 100, height: 100)
+        addSublayer(CircleWithLabel().text4)
+        CircleWithLabel().text5.string = letter[0+shift]
+        CircleWithLabel().text5.fontSize = CGFloat(20)
+        CircleWithLabel().text5.frame = CGRect(x: position.x, y: position.y - CGFloat(75)*level, width: 100, height: 100)
+        addSublayer(CircleWithLabel().text5)
+        CircleWithLabel().text6.string = letter[2+shift]
+        CircleWithLabel().text6.fontSize = CGFloat(20)
+        CircleWithLabel().text6.frame = CGRect(x: position.x + 75*level, y: position.y, width: 100, height: 100)
+        addSublayer(CircleWithLabel().text6)
+        CircleWithLabel().text7.string = letter[4+shift]
+        CircleWithLabel().text7.fontSize = CGFloat(20)
+        CircleWithLabel().text7.frame = CGRect(x: position.x, y: position.y + CGFloat(75)*level, width: 100, height: 100)
+        addSublayer(CircleWithLabel().text7)
+        CircleWithLabel().text8.string = letter[6+shift]
+        CircleWithLabel().text8.fontSize = CGFloat(20)
+        CircleWithLabel().text8.frame = CGRect(x: position.x - 75*level, y: position.y, width: 100, height: 100)
+        addSublayer(CircleWithLabel().text8)
+
+    }
+    
+
     func drawAtPoint(location: CGPoint, force: CGFloat)
     {
         
@@ -413,23 +464,23 @@ class CircleWithLabel: CAShapeLayer
         case 0.1..<25:
             level = 1
             text.string = String(format: "Level %d", level)
-            
+            drawLetter(rawLetters[1]!, position: location)
             radius = CGFloat(60 + (0.10 * 120))
             
         case 25..<50:
             level = 2
             text.string = String(format: "Level %d", level)
-            
+            drawLetter(rawLetters[2]!, position: location)
             radius = CGFloat(60 + (0.40 * 120))
         case 50..<75:
             level = 3
             text.string = String(format: "Level %d", level)
-            
+            drawLetter(rawLetters[3]!, position: location)
             radius = CGFloat(60 + (0.70 * 120))
         case 75..<200:
             level = 4
             text.string = String(format: "Level %d", level)
-            
+            drawLetter(rawLetters[4]!, position: location)
             radius = CGFloat(60 + (1 * 120))
             //                AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
         default:
