@@ -30,15 +30,21 @@ class KeyboardViewController: UIInputViewController {
     
 
     @IBOutlet var nextKeyboardButton: UIButton!
-
+    var heightConstraint:NSLayoutConstraint!
     override func updateViewConstraints() {
         super.updateViewConstraints()
+    }
+    
+    
     
         // Add custom view sizing constraints here
-    }
+
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        
         
         view.multipleTouchEnabled = true
         
@@ -65,7 +71,15 @@ class KeyboardViewController: UIInputViewController {
         let nextKeyboardButtonLeftSideConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 0.0)
         let nextKeyboardButtonBottomConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
         self.view.addConstraints([nextKeyboardButtonLeftSideConstraint, nextKeyboardButtonBottomConstraint])
+
     }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let constraint = NSLayoutConstraint(item: self.view, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 0.0, constant: 400.0)
+        self.view.addConstraint(constraint)
+    }
+    
     
     func handlePans(sender:UIPanGestureRecognizer) {
         if sender.state == UIGestureRecognizerState.Began || sender.state == UIGestureRecognizerState.Changed {
@@ -331,7 +345,7 @@ class CircleWithLabel: CAShapeLayer
     
     func getSelectedLetter(direction: String, distance: Double) -> String {
         
-        let levelLetters = letters[level]
+        let levelLetters = letters[1] // CHANGE
         
         if(direction == "up"){
             if (distance > innerLettersBoundary){

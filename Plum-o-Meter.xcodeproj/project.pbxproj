@@ -63,6 +63,7 @@
 		67DA1FD01BF7E0E3005014CD /* ableBoard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ableBoard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		67DA1FD21BF7E0E3005014CD /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		67DA1FD41BF7E0E3005014CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE2C73981BF828DD0086022C /* Plum-o-Meter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Plum-o-Meter.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +109,7 @@
 		3ECBB7D11BDBB8AA00328B67 /* Plum-o-Meter */ = {
 			isa = PBXGroup;
 			children = (
+				BE2C73981BF828DD0086022C /* Plum-o-Meter.entitlements */,
 				3ECBB7D21BDBB8AA00328B67 /* AppDelegate.swift */,
 				3ECBB7D41BDBB8AA00328B67 /* ViewController.swift */,
 				3ECBB7D61BDBB8AA00328B67 /* Main.storyboard */,
@@ -199,6 +201,11 @@
 					3ECBB7CE1BDBB8AA00328B67 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 27TDYN2MG8;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					67DA1FCF1BF7E0E3005014CD = {
 						CreatedOnToolsVersion = 7.2;
@@ -384,6 +391,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_ENTITLEMENTS = "Plum-o-Meter/Plum-o-Meter.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -401,6 +409,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_ENTITLEMENTS = "Plum-o-Meter/Plum-o-Meter.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
