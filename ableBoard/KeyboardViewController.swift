@@ -44,7 +44,7 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blackColor()
+//        self.view.backgroundColor = UIColor.grayColor()
         
         
         view.multipleTouchEnabled = true
@@ -293,10 +293,10 @@ class KeyboardViewController: UIInputViewController {
             }).first?.0
         }
         
-        circles.forEach
-            {
-                $0.1.isMax = $0.0 == getMaxTouch()
-        }
+//        circles.forEach
+//            {
+//                $0.1.isMax = $0.0 == getMaxTouch()
+//        }
     }
     
     //    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask
@@ -352,13 +352,13 @@ class CircleWithLabel: CAShapeLayer
         fatalError("init(coder:) has not been implemented")
     }
     
-    var isMax: Bool = false
-        {
-        didSet
-        {
-            fillColor = isMax ? UIColor.whiteColor().CGColor : nil
-        }
-    }
+//    var isMax: Bool = false
+//        {
+//        didSet
+//        {
+//            fillColor = isMax ? UIColor.whiteColor().CGColor : nil
+//        }
+//    }
     
     func getSelectedLetter(direction: String, distance: Double) -> String {
         
