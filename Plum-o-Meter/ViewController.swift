@@ -89,7 +89,7 @@ class ViewController: UIViewController{
                 }
             }
 
-            // THIS TELLS US WHAT LETTER IS SELECTED
+            // THIS TELLS US WHAT LETTER IS CURRENTLY SELECTED
             print(circles[circles.startIndex].1.getSelectedLetter(currentDirection, distance: Double(spot.length)))
             
 //            distLabel.text = ("\(spot.length)")
