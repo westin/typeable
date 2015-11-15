@@ -17,6 +17,8 @@ class KeyboardViewController: UIInputViewController {
     var xChange = CGFloat()
     var yChange = CGFloat()
     
+    var currentDirection = "up"
+    
     var position = 0;
     
     
@@ -90,38 +92,37 @@ class KeyboardViewController: UIInputViewController {
             yChange = (translation.y)
             spot.length = round(100*sqrt((xChange * xChange) + (yChange * yChange)) / 100)
             
-            var currentDirection = "up"
             
             if (translation.x >= 0) {
                 if (translation.y >= translation.x) {
-                    print("Swipe Down")
+//                    print("Swipe Down")
                     currentDirection = "down"
 //                    distLabel.text = ("Swiping Down \(spot.length) pixels")
                 }
                 if (translation.y < 0 && abs(translation.y) >= translation.x) {
-                    print("Swipe Up")
+//                    print("Swipe Up")
                     currentDirection = "up"
 //                    distLabel.text = ("Swiping Up \(spot.length) pixels")
                 }
                 if (translation.x > abs(translation.y)) {
-                    print("Swipe Right")
+//                    print("Swipe Right")
                     currentDirection = "right"
 //                    distLabel.text = ("Swiping Right \(spot.length) pixels")
                 }
             }
             else {
                 if (translation.y >= abs(translation.x)) {
-                    print("Swipe Down")
+//                    print("Swipe Down")
                     currentDirection = "down"
 //                    distLabel.text = ("Swiping Down \(spot.length) pixels")
                 }
                 if (translation.y < 0 && abs(translation.y) > abs(translation.x)) {
-                    print("Swipe Up")
+//                    print("Swipe Up")
                     currentDirection = "up"
 //                    distLabel.text = ("Swiping Up \(spot.length) pixels")
                 }
                 if (abs(translation.x) > abs(translation.y)) {
-                    print("Swipe Left")
+//                    print("Swipe Left")
                     currentDirection = "left"
 //                    distLabel.text = ("Swiping Left \(spot.length) pixels")
                 }
@@ -132,6 +133,15 @@ class KeyboardViewController: UIInputViewController {
             
         }
         
+        if sender.state == UIGestureRecognizerState.Ended {
+            keyPressed(circles[circles.startIndex].1.getSelectedLetter(currentDirection, distance: Double(spot.length)))
+        }
+
+        
+    }
+    
+    func keyPressed(letter: AnyObject?) {
+        (textDocumentProxy as UIKeyInput).insertText(letter! as! String)
     }
     
     class Distance {
@@ -219,8 +229,6 @@ class KeyboardViewController: UIInputViewController {
         //            circle.removeFromSuperlayer()
         //        }
         
-        highlightHeaviest()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -248,7 +256,6 @@ class KeyboardViewController: UIInputViewController {
     // this part gets called immeditely after we notice you're swiping in a certain direction
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
     {
-        
         
         
         guard let touches = touches else
