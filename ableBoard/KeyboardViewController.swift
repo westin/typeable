@@ -42,7 +42,7 @@ class KeyboardViewController: UIInputViewController {
         
         view.multipleTouchEnabled = true
         
-        label.text = "typeable"
+        label.text = ""
         
         label.textAlignment = NSTextAlignment.Center
         
@@ -54,7 +54,7 @@ class KeyboardViewController: UIInputViewController {
         // Perform custom UI setup here
         self.nextKeyboardButton = UIButton(type: .System)
     
-        self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), forState: .Normal)
+        self.nextKeyboardButton.setTitle(NSLocalizedString("🌐", comment: "Title for 'Next Keyboard' button"), forState: .Normal)
         self.nextKeyboardButton.sizeToFit()
         self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
     
@@ -75,7 +75,7 @@ class KeyboardViewController: UIInputViewController {
             yChange = (translation.y)
             spot.length = round(100*sqrt((xChange * xChange) + (yChange * yChange)) / 100)
             
-            var currentDirection = "none"
+            var currentDirection = "up"
             
             if (translation.x >= 0) {
                 if (translation.y >= translation.x) {
@@ -115,8 +115,6 @@ class KeyboardViewController: UIInputViewController {
             // THIS TELLS US WHAT LETTER IS CURRENTLY SELECTED
             print(circles[circles.startIndex].1.getSelectedLetter(currentDirection, distance: Double(spot.length)))
             
-            //            distLabel.text = ("\(spot.length)")
-            //            print(spot.length)
         }
         
     }
@@ -130,7 +128,7 @@ class KeyboardViewController: UIInputViewController {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
-        label.hidden = true
+        label.hidden = false
         
         if let touch = touches.first {
             let place = touch.locationInView(view)
@@ -331,6 +329,7 @@ class CircleWithLabel: CAShapeLayer
     
     func getSelectedLetter(direction: String, distance: Double) -> String {
         
+//        let levelLetters = letters[1]
         let levelLetters = letters[level]
         
         if(direction == "up"){
