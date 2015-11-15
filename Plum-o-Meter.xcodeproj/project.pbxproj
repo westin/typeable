@@ -66,11 +66,7 @@
 		67DA1FD01BF7E0E3005014CD /* ableBoard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ableBoard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		67DA1FD21BF7E0E3005014CD /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		67DA1FD41BF7E0E3005014CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		67DA1FE11BF82823005014CD /* Plum-o-Meter-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Plum-o-Meter-Bridging-Header.h"; path = "Taptic/Plum-o-Meter-Bridging-Header.h"; sourceTree = "<group>"; };
-=======
-		BE2C73981BF828DD0086022C /* Plum-o-Meter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Plum-o-Meter.entitlements"; sourceTree = "<group>"; };
->>>>>>> 3dcb4e08d2610c5c586c67ae1ae1e017ded6160c
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
