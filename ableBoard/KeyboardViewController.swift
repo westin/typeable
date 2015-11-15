@@ -290,7 +290,7 @@ class CircleWithLabel: CAShapeLayer
     var level: Int = 0 {
         didSet {
             if level != oldValue{
-//                UIDevice.currentDevice().tapticEngine().actuateFeedback(UITapticEngineFeedbackPeek)
+                UIDevice.currentDevice().tapticEngine().actuateFeedback(UITapticEngineFeedbackPeek)
             }
         }
     }
