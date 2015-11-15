@@ -17,7 +17,7 @@ class ViewController: UIViewController{
     var xChange = CGFloat()
     var yChange = CGFloat()
     
-    
+    var currentDirection: String = ""
     
     var position = 0;
     
@@ -43,6 +43,17 @@ class ViewController: UIViewController{
         
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePans:")
         view.addGestureRecognizer(gestureRecognizer)
+        
+        func drawLetters(text:String, xPos:CGFloat, yPos:CGFloat) {
+            let letter = UILabel()
+            letter.text = text
+            letter.textAlignment = .Center
+            letter.numberOfLines = 5
+            letter.frame = CGRectMake(xPos, yPos, 50, 50)
+            self.view.addSubview(letter)
+        }
+        
+        var letter = drawLetters("A", xPos: 100.0, yPos: 100.0)
         
         
         
@@ -299,7 +310,8 @@ class CircleWithLabel: CAShapeLayer
     
     func getSelectedLetter(direction: String, distance: Double) -> String {
         
-        let levelLetters = letters[level]
+        let levelLetters = letters[1] // REMEMBER THIS
+        
         
         if(direction == "up"){
             if (distance > innerLettersBoundary){
@@ -392,16 +404,7 @@ class CircleWithLabel: CAShapeLayer
 
     
 
-    func drawLetters(text:String, xPos:CGFloat, yPos:CGFloat) {
-        let label:UILabel = UILabel(frame: CGRectMake(xPos, yPos, 50.0, 50.0))
-        label.center = CGPointMake(160, 284)
-        label.backgroundColor = UIColor.redColor()
-        label.text = text
-//        label.textRectForBounds(CGRectMake(xPos, yPos, 50.0, 50.0), limitedToNumberOfLines: 1)
-        UIViewController().view.addSubview(label)
-    }
 
-var letter = drawLetters("A", xPos:100.0, yPos:100.0)
 
 // -------------
 
