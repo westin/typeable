@@ -112,7 +112,6 @@
 		3ECBB7D11BDBB8AA00328B67 /* Plum-o-Meter */ = {
 			isa = PBXGroup;
 			children = (
-				BE2C73981BF828DD0086022C /* Plum-o-Meter.entitlements */,
 				3ECBB7D21BDBB8AA00328B67 /* AppDelegate.swift */,
 				3ECBB7D41BDBB8AA00328B67 /* ViewController.swift */,
 				3ECBB7D61BDBB8AA00328B67 /* Main.storyboard */,
