@@ -21,7 +21,6 @@ class KeyboardViewController: UIInputViewController {
     
     var position = 0;
     
-    
     let label = UILabel()
     
     var circles = [UITouch: CircleWithLabel]()
@@ -56,6 +55,9 @@ class KeyboardViewController: UIInputViewController {
         
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePans:")
         view.addGestureRecognizer(gestureRecognizer)
+        
+        let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: "handlePinches:")
+        view.addGestureRecognizer(pinchRecognizer)
     
         // Perform custom UI setup here
         self.nextKeyboardButton = UIButton(type: .System)
@@ -89,7 +91,6 @@ class KeyboardViewController: UIInputViewController {
             xChange = (translation.x)
             yChange = (translation.y)
             spot.length = round(100*sqrt((xChange * xChange) + (yChange * yChange)) / 100)
-            
             
             if (translation.x >= 0) {
                 if (translation.y >= translation.x) {
@@ -136,6 +137,12 @@ class KeyboardViewController: UIInputViewController {
         }
 
         
+    }
+    
+    func handlePinches(sender:UIPinchGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.Ended {
+            (textDocumentProxy as UIKeyInput).deleteBackward()
+        }
     }
     
     func keyPressed(letter: AnyObject?) {
@@ -218,6 +225,10 @@ class KeyboardViewController: UIInputViewController {
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
+        if (touches.count == 2){
+            keyPressed(" ")
+        }
+        
         //        for touch in touches where circles[touch] != nil
         //        {
         //            let circle = circles[touch]!
