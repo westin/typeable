@@ -287,7 +287,7 @@ class CircleWithLabel: CAShapeLayer
     
     func getSelectedLetter(direction: String, distance: Double) -> String {
         
-        let levelLetters = letters[level]
+        let levelLetters = letters[1]  // CHANGE
         
         if(direction == "up"){
             if (distance > innerLettersBoundary){

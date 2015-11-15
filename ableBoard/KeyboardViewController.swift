@@ -30,19 +30,25 @@ class KeyboardViewController: UIInputViewController {
     
 
     @IBOutlet var nextKeyboardButton: UIButton!
-
+    var heightConstraint:NSLayoutConstraint!
     override func updateViewConstraints() {
         super.updateViewConstraints()
+    }
+    
+    
     
         // Add custom view sizing constraints here
-    }
+
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        
         
         view.multipleTouchEnabled = true
         
-        label.text = "typeable"
+        label.text = ""
         
         label.textAlignment = NSTextAlignment.Center
         
@@ -54,7 +60,7 @@ class KeyboardViewController: UIInputViewController {
         // Perform custom UI setup here
         self.nextKeyboardButton = UIButton(type: .System)
     
-        self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), forState: .Normal)
+        self.nextKeyboardButton.setTitle(NSLocalizedString("🌐", comment: "Title for 'Next Keyboard' button"), forState: .Normal)
         self.nextKeyboardButton.sizeToFit()
         self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
     
@@ -65,7 +71,15 @@ class KeyboardViewController: UIInputViewController {
         let nextKeyboardButtonLeftSideConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 0.0)
         let nextKeyboardButtonBottomConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
         self.view.addConstraints([nextKeyboardButtonLeftSideConstraint, nextKeyboardButtonBottomConstraint])
+
     }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let constraint = NSLayoutConstraint(item: self.view, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 0.0, constant: 400.0)
+        self.view.addConstraint(constraint)
+    }
+    
     
     func handlePans(sender:UIPanGestureRecognizer) {
         if sender.state == UIGestureRecognizerState.Began || sender.state == UIGestureRecognizerState.Changed {
@@ -75,7 +89,7 @@ class KeyboardViewController: UIInputViewController {
             yChange = (translation.y)
             spot.length = round(100*sqrt((xChange * xChange) + (yChange * yChange)) / 100)
             
-            var currentDirection = "none"
+            var currentDirection = "up"
             
             if (translation.x >= 0) {
                 if (translation.y >= translation.x) {
@@ -115,8 +129,6 @@ class KeyboardViewController: UIInputViewController {
             // THIS TELLS US WHAT LETTER IS CURRENTLY SELECTED
             print(circles[circles.startIndex].1.getSelectedLetter(currentDirection, distance: Double(spot.length)))
             
-            //            distLabel.text = ("\(spot.length)")
-            //            print(spot.length)
         }
         
     }
@@ -130,7 +142,7 @@ class KeyboardViewController: UIInputViewController {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
-        label.hidden = true
+        label.hidden = false
         
         if let touch = touches.first {
             let place = touch.locationInView(view)
@@ -331,7 +343,12 @@ class CircleWithLabel: CAShapeLayer
     
     func getSelectedLetter(direction: String, distance: Double) -> String {
         
-        let levelLetters = letters[level]
+
+        let levelLetters = letters[level] // CHANGE
+
+
+
+
         
         if(direction == "up"){
             if (distance > innerLettersBoundary){
