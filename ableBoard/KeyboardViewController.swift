@@ -45,7 +45,7 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blackColor()
+//        self.view.backgroundColor = UIColor.grayColor()
         
         
         view.multipleTouchEnabled = true
