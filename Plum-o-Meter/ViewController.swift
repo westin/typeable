@@ -8,7 +8,6 @@
 
 import UIKit
 import AudioToolbox // Needed Vibrate the iPhone
-import AVFoundation
 
 class ViewController: UIViewController{
     
@@ -18,15 +17,12 @@ class ViewController: UIViewController{
     var xChange = CGFloat()
     var yChange = CGFloat()
     
-    var currentDirection: String = ""
-    
     var position = 0;
     
     
     let label = UILabel()
     
     var circles = [UITouch: CircleWithLabel]()
-    
     
     @IBOutlet weak var swipeLabel: UILabel!
     
@@ -45,17 +41,6 @@ class ViewController: UIViewController{
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePans:")
         view.addGestureRecognizer(gestureRecognizer)
         
-        func drawLetters(text:String, xPos:CGFloat, yPos:CGFloat) {
-            let letter = UILabel()
-            letter.text = text
-            letter.textAlignment = .Center
-            letter.numberOfLines = 5
-            letter.frame = CGRectMake(xPos, yPos, 50, 50)
-            self.view.addSubview(letter)
-        }
-        
-        var letter = drawLetters("A", xPos: 100.0, yPos: 100.0)
-        
     }
     
     
@@ -67,6 +52,7 @@ class ViewController: UIViewController{
             yChange = (translation.y)
             spot.length = round(100*sqrt((xChange * xChange) + (yChange * yChange)) / 100)
             
+            var currentDirection = "none"
             
             if (translation.x >= 0) {
                 if (translation.y >= translation.x) {
@@ -112,10 +98,6 @@ class ViewController: UIViewController{
         
     }
     
-    class letterBox {
-        var width = 50
-        var height = 50
-    }
     
     class Distance {
         var position = CGPoint()
@@ -123,15 +105,9 @@ class ViewController: UIViewController{
     }
     
     let spot = Distance()
-    let box = letterBox()
-    
-    
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
-        
-        
-        
         label.hidden = true
         
         if let touch = touches.first {
@@ -260,17 +236,6 @@ class ViewController: UIViewController{
     }
 }
 
-
-// -------------
-
-func dictate(text:String) {
-    let speak = AVSpeechUtterance(string: text)
-    speak.voice = AVSpeechSynthesisVoice(language: "en-US")
-    let synthesizer = AVSpeechSynthesizer()
-    synthesizer.speakUtterance(speak)
-}
-
-
 // -------------
 
 class CircleWithLabel: CAShapeLayer
@@ -322,16 +287,13 @@ class CircleWithLabel: CAShapeLayer
     
     func getSelectedLetter(direction: String, distance: Double) -> String {
         
-        let levelLetters = letters[1] // REMEMBER THIS
-        
+        let levelLetters = letters[level]
         
         if(direction == "up"){
             if (distance > innerLettersBoundary){
-//                dictate((levelLetters?["farUp"])!)
                 return (levelLetters?["farUp"])!
             }
             else{
-//                dictate((levelLetters?["up"])!)
                 return (levelLetters?["up"])!
             }
             
@@ -413,12 +375,7 @@ class CircleWithLabel: CAShapeLayer
                 size: CGSize(width: radius * 2, height: radius * 2))).CGPath
         
     }
-    
 }
-
-    
-
-
 
 // -------------
 

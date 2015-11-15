@@ -16,7 +16,8 @@
 		67DA1FC01BF71CCC005014CD /* Taptic in Resources */ = {isa = PBXBuildFile; fileRef = 67DA1FBE1BF71CCC005014CD /* Taptic */; };
 		67DA1FC51BF71DBB005014CD /* UIDevice+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 67DA1FC31BF71DBB005014CD /* UIDevice+Private.m */; };
 		67DA1FCA1BF71E1F005014CD /* TapticEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 67DA1FC81BF71E1F005014CD /* TapticEngine.m */; };
-		BE091E281BF809CD009EE3FF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE091E271BF809CD009EE3FF /* AVFoundation.framework */; };
+		67DA1FD31BF7E0E3005014CD /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DA1FD21BF7E0E3005014CD /* KeyboardViewController.swift */; };
+		67DA1FD71BF7E0E3005014CD /* ableBoard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 67DA1FD01BF7E0E3005014CD /* ableBoard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +60,9 @@
 		67DA1FC41BF71DBB005014CD /* UITapticEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UITapticEngine.h; path = Headers/UITapticEngine.h; sourceTree = "<group>"; };
 		67DA1FC71BF71E1F005014CD /* TapticEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TapticEngine.h; path = Taptic/TapticEngine.h; sourceTree = "<group>"; };
 		67DA1FC81BF71E1F005014CD /* TapticEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TapticEngine.m; path = Taptic/TapticEngine.m; sourceTree = "<group>"; };
-		BE091E271BF809CD009EE3FF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		67DA1FD01BF7E0E3005014CD /* ableBoard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ableBoard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		67DA1FD21BF7E0E3005014CD /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		67DA1FD41BF7E0E3005014CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE091E281BF809CD009EE3FF /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +86,6 @@
 		3ECBB7C61BDBB8AA00328B67 = {
 			isa = PBXGroup;
 			children = (
-				BE091E271BF809CD009EE3FF /* AVFoundation.framework */,
 				67DA1FC61BF71E14005014CD /* Taptic */,
 				67DA1FC11BF71DAB005014CD /* Headers */,
 				67DA1FBD1BF71CCC005014CD /* Headers */,
@@ -197,11 +198,11 @@
 				TargetAttributes = {
 					3ECBB7CE1BDBB8AA00328B67 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 4V62XLBBT8;
+						DevelopmentTeam = 27TDYN2MG8;
 					};
 					67DA1FCF1BF7E0E3005014CD = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 4V62XLBBT8;
+						DevelopmentTeam = 27TDYN2MG8;
 					};
 				};
 			};
@@ -389,7 +390,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Plum-o-Meter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableArun;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableNick;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Headers/Plum-o-Meter-Bridging-Header.h";
@@ -406,7 +407,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Plum-o-Meter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableArun;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableNick;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Headers/Plum-o-Meter-Bridging-Header.h";
@@ -421,7 +422,7 @@
 				INFOPLIST_FILE = ableBoard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableArun.ableBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableNick.ableBoardd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -436,7 +437,7 @@
 				INFOPLIST_FILE = ableBoard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableArun.ableBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableNick.ableBoardd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -471,6 +472,7 @@
 				67DA1FD91BF7E0E3005014CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
