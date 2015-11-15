@@ -19,6 +19,30 @@
 		BE091E281BF809CD009EE3FF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE091E271BF809CD009EE3FF /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		67DA1FD51BF7E0E3005014CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3ECBB7C71BDBB8AA00328B67 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67DA1FCF1BF7E0E3005014CD;
+			remoteInfo = ableBoard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		67DA1FDB1BF7E0E3005014CD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				67DA1FD71BF7E0E3005014CD /* ableBoard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		078315EE1BF7CF4900B7CF77 /* Plum-o-Meter-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Plum-o-Meter-Bridging-Header.h"; path = "Headers/Plum-o-Meter-Bridging-Header.h"; sourceTree = "<group>"; };
 		3ECBB7CF1BDBB8AA00328B67 /* Plum-o-Meter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plum-o-Meter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +71,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		67DA1FCD1BF7E0E3005014CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -59,6 +90,7 @@
 				67DA1FBD1BF71CCC005014CD /* Headers */,
 				67DA1FBE1BF71CCC005014CD /* Taptic */,
 				3ECBB7D11BDBB8AA00328B67 /* Plum-o-Meter */,
+				67DA1FD11BF7E0E3005014CD /* ableBoard */,
 				3ECBB7D01BDBB8AA00328B67 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				3ECBB7CF1BDBB8AA00328B67 /* Plum-o-Meter.app */,
+				67DA1FD01BF7E0E3005014CD /* ableBoard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,6 +137,15 @@
 			name = Taptic;
 			sourceTree = "<group>";
 		};
+		67DA1FD11BF7E0E3005014CD /* ableBoard */ = {
+			isa = PBXGroup;
+			children = (
+				67DA1FD21BF7E0E3005014CD /* KeyboardViewController.swift */,
+				67DA1FD41BF7E0E3005014CD /* Info.plist */,
+			);
+			path = ableBoard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -114,15 +156,34 @@
 				3ECBB7CB1BDBB8AA00328B67 /* Sources */,
 				3ECBB7CC1BDBB8AA00328B67 /* Frameworks */,
 				3ECBB7CD1BDBB8AA00328B67 /* Resources */,
+				67DA1FDB1BF7E0E3005014CD /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				67DA1FD61BF7E0E3005014CD /* PBXTargetDependency */,
 			);
 			name = "Plum-o-Meter";
 			productName = "Plum-o-Meter";
 			productReference = 3ECBB7CF1BDBB8AA00328B67 /* Plum-o-Meter.app */;
 			productType = "com.apple.product-type.application";
+		};
+		67DA1FCF1BF7E0E3005014CD /* ableBoard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67DA1FDA1BF7E0E3005014CD /* Build configuration list for PBXNativeTarget "ableBoard" */;
+			buildPhases = (
+				67DA1FCC1BF7E0E3005014CD /* Sources */,
+				67DA1FCD1BF7E0E3005014CD /* Frameworks */,
+				67DA1FCE1BF7E0E3005014CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ableBoard;
+			productName = ableBoard;
+			productReference = 67DA1FD01BF7E0E3005014CD /* ableBoard.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -130,13 +191,17 @@
 		3ECBB7C71BDBB8AA00328B67 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Simon Gladman";
 				TargetAttributes = {
 					3ECBB7CE1BDBB8AA00328B67 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 27TDYN2MG8;
+						DevelopmentTeam = 4V62XLBBT8;
+					};
+					67DA1FCF1BF7E0E3005014CD = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 4V62XLBBT8;
 					};
 				};
 			};
@@ -154,6 +219,7 @@
 			projectRoot = "";
 			targets = (
 				3ECBB7CE1BDBB8AA00328B67 /* Plum-o-Meter */,
+				67DA1FCF1BF7E0E3005014CD /* ableBoard */,
 			);
 		};
 /* End PBXProject section */
@@ -171,6 +237,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		67DA1FCE1BF7E0E3005014CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -185,7 +258,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		67DA1FCC1BF7E0E3005014CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67DA1FD31BF7E0E3005014CD /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		67DA1FD61BF7E0E3005014CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67DA1FCF1BF7E0E3005014CD /* ableBoard */;
+			targetProxy = 67DA1FD51BF7E0E3005014CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3ECBB7D61BDBB8AA00328B67 /* Main.storyboard */ = {
@@ -297,9 +386,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Plum-o-Meter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableNick;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableArun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Headers/Plum-o-Meter-Bridging-Header.h";
@@ -313,12 +403,43 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Plum-o-Meter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableNick;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableArun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Headers/Plum-o-Meter-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		67DA1FD81BF7E0E3005014CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = ableBoard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableArun.ableBoard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		67DA1FD91BF7E0E3005014CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = ableBoard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableArun.ableBoard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -342,6 +463,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		67DA1FDA1BF7E0E3005014CD /* Build configuration list for PBXNativeTarget "ableBoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67DA1FD81BF7E0E3005014CD /* Debug */,
+				67DA1FD91BF7E0E3005014CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,24 +1,21 @@
 //
-//  ViewController.swift
-//  Plum-o-Meter
+//  KeyboardViewController.swift
+//  ableBoard
 //
-//  Created by Simon Gladman on 24/10/2015.
+//  Created by Arun Marsten on 11/14/15.
 //  Copyright © 2015 Simon Gladman. All rights reserved.
 //
 
 import UIKit
 import AudioToolbox // Needed Vibrate the iPhone
-import AVFoundation
 
-class ViewController: UIViewController{
+class KeyboardViewController: UIInputViewController {
     
     @IBOutlet weak var distLabel: UILabel!
     var xPos = CGPoint().x
     var yPos = CGPoint().y
     var xChange = CGFloat()
     var yChange = CGFloat()
-    
-    var currentDirection: String = ""
     
     var position = 0;
     
@@ -27,11 +24,20 @@ class ViewController: UIViewController{
     
     var circles = [UITouch: CircleWithLabel]()
     
-    
     @IBOutlet weak var swipeLabel: UILabel!
     
-    override func viewDidLoad()
-    {
+    
+    
+
+    @IBOutlet var nextKeyboardButton: UIButton!
+
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+    
+        // Add custom view sizing constraints here
+    }
+
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         view.multipleTouchEnabled = true
@@ -44,20 +50,22 @@ class ViewController: UIViewController{
         
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePans:")
         view.addGestureRecognizer(gestureRecognizer)
-        
-        func drawLetters(text:String, xPos:CGFloat, yPos:CGFloat) {
-            let letter = UILabel()
-            letter.text = text
-            letter.textAlignment = .Center
-            letter.numberOfLines = 5
-            letter.frame = CGRectMake(xPos, yPos, 50, 50)
-            self.view.addSubview(letter)
-        }
-        
-        var letter = drawLetters("A", xPos: 100.0, yPos: 100.0)
-        
-    }
     
+        // Perform custom UI setup here
+        self.nextKeyboardButton = UIButton(type: .System)
+    
+        self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), forState: .Normal)
+        self.nextKeyboardButton.sizeToFit()
+        self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+    
+        self.nextKeyboardButton.addTarget(self, action: "advanceToNextInputMode", forControlEvents: .TouchUpInside)
+        
+        self.view.addSubview(self.nextKeyboardButton)
+    
+        let nextKeyboardButtonLeftSideConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 0.0)
+        let nextKeyboardButtonBottomConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
+        self.view.addConstraints([nextKeyboardButtonLeftSideConstraint, nextKeyboardButtonBottomConstraint])
+    }
     
     func handlePans(sender:UIPanGestureRecognizer) {
         if sender.state == UIGestureRecognizerState.Began || sender.state == UIGestureRecognizerState.Changed {
@@ -67,54 +75,50 @@ class ViewController: UIViewController{
             yChange = (translation.y)
             spot.length = round(100*sqrt((xChange * xChange) + (yChange * yChange)) / 100)
             
+            var currentDirection = "none"
             
             if (translation.x >= 0) {
                 if (translation.y >= translation.x) {
                     print("Swipe Down")
                     currentDirection = "down"
-                    distLabel.text = ("Swiping Down \(spot.length) pixels")
+//                    distLabel.text = ("Swiping Down \(spot.length) pixels")
                 }
                 if (translation.y < 0 && abs(translation.y) >= translation.x) {
                     print("Swipe Up")
                     currentDirection = "up"
-                    distLabel.text = ("Swiping Up \(spot.length) pixels")
+//                    distLabel.text = ("Swiping Up \(spot.length) pixels")
                 }
                 if (translation.x > abs(translation.y)) {
                     print("Swipe Right")
                     currentDirection = "right"
-                    distLabel.text = ("Swiping Right \(spot.length) pixels")
+//                    distLabel.text = ("Swiping Right \(spot.length) pixels")
                 }
             }
             else {
                 if (translation.y >= abs(translation.x)) {
                     print("Swipe Down")
                     currentDirection = "down"
-                    distLabel.text = ("Swiping Down \(spot.length) pixels")
+//                    distLabel.text = ("Swiping Down \(spot.length) pixels")
                 }
                 if (translation.y < 0 && abs(translation.y) > abs(translation.x)) {
                     print("Swipe Up")
                     currentDirection = "up"
-                    distLabel.text = ("Swiping Up \(spot.length) pixels")
+//                    distLabel.text = ("Swiping Up \(spot.length) pixels")
                 }
                 if (abs(translation.x) > abs(translation.y)) {
                     print("Swipe Left")
                     currentDirection = "left"
-                    distLabel.text = ("Swiping Left \(spot.length) pixels")
+//                    distLabel.text = ("Swiping Left \(spot.length) pixels")
                 }
             }
-
+            
             // THIS TELLS US WHAT LETTER IS CURRENTLY SELECTED
             print(circles[circles.startIndex].1.getSelectedLetter(currentDirection, distance: Double(spot.length)))
             
-//            distLabel.text = ("\(spot.length)")
-//            print(spot.length)
+            //            distLabel.text = ("\(spot.length)")
+            //            print(spot.length)
         }
         
-    }
-    
-    class letterBox {
-        var width = 50
-        var height = 50
     }
     
     class Distance {
@@ -123,15 +127,9 @@ class ViewController: UIViewController{
     }
     
     let spot = Distance()
-    let box = letterBox()
-    
-    
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
-        
-        
-        
         label.hidden = true
         
         if let touch = touches.first {
@@ -211,7 +209,28 @@ class ViewController: UIViewController{
         highlightHeaviest()
         
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated
+    }
+
+    override func textWillChange(textInput: UITextInput?) {
+        // The app is about to change the document's contents. Perform any preparation here.
+    }
+
+    override func textDidChange(textInput: UITextInput?) {
+        // The app has just changed the document's contents, the document context has been updated.
     
+        var textColor: UIColor
+        let proxy = self.textDocumentProxy
+        if proxy.keyboardAppearance == UIKeyboardAppearance.Dark {
+            textColor = UIColor.whiteColor()
+        } else {
+            textColor = UIColor.blackColor()
+        }
+        self.nextKeyboardButton.setTitleColor(textColor, forState: .Normal)
+    }
     
     // this part gets called immeditely after we notice you're swiping in a certain direction
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
@@ -258,18 +277,8 @@ class ViewController: UIViewController{
     {
         label.frame = view.bounds
     }
+
 }
-
-
-// -------------
-
-func dictate(text:String) {
-    let speak = AVSpeechUtterance(string: text)
-    speak.voice = AVSpeechSynthesisVoice(language: "en-US")
-    let synthesizer = AVSpeechSynthesizer()
-    synthesizer.speakUtterance(speak)
-}
-
 
 // -------------
 
@@ -281,7 +290,7 @@ class CircleWithLabel: CAShapeLayer
     var level: Int = 0 {
         didSet {
             if level != oldValue{
-                UIDevice.currentDevice().tapticEngine().actuateFeedback(UITapticEngineFeedbackPeek)
+//                UIDevice.currentDevice().tapticEngine().actuateFeedback(UITapticEngineFeedbackPeek)
             }
         }
     }
@@ -322,16 +331,13 @@ class CircleWithLabel: CAShapeLayer
     
     func getSelectedLetter(direction: String, distance: Double) -> String {
         
-        let levelLetters = letters[1] // REMEMBER THIS
-        
+        let levelLetters = letters[level]
         
         if(direction == "up"){
             if (distance > innerLettersBoundary){
-//                dictate((levelLetters?["farUp"])!)
                 return (levelLetters?["farUp"])!
             }
             else{
-//                dictate((levelLetters?["up"])!)
                 return (levelLetters?["up"])!
             }
             
@@ -413,12 +419,7 @@ class CircleWithLabel: CAShapeLayer
                 size: CGSize(width: radius * 2, height: radius * 2))).CGPath
         
     }
-    
 }
-
-    
-
-
 
 // -------------
 
