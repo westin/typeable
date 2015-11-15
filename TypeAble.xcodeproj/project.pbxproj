@@ -66,7 +66,7 @@
 		67DA1FD01BF7E0E3005014CD /* ableBoard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ableBoard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		67DA1FD21BF7E0E3005014CD /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		67DA1FD41BF7E0E3005014CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		67DA1FE11BF82823005014CD /* Plum-o-Meter-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Plum-o-Meter-Bridging-Header.h"; path = "Taptic/Plum-o-Meter-Bridging-Header.h"; sourceTree = "<group>"; };
+		67DA1FE71BF86FE2005014CD /* TypeAble-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TypeAble-Bridging-Header.h"; path = "Taptic/TypeAble-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +136,7 @@
 		67DA1FC61BF71E14005014CD /* Taptic */ = {
 			isa = PBXGroup;
 			children = (
-				67DA1FE11BF82823005014CD /* Plum-o-Meter-Bridging-Header.h */,
+				67DA1FE71BF86FE2005014CD /* TypeAble-Bridging-Header.h */,
 				67DA1FC71BF71E1F005014CD /* TapticEngine.h */,
 				67DA1FC81BF71E1F005014CD /* TapticEngine.m */,
 			);
