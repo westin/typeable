@@ -46,7 +46,7 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor.blackColor()
         
         
         view.multipleTouchEnabled = true
@@ -337,7 +337,7 @@ class CircleWithLabel: CAShapeLayer
     {
         super.init()
         
-        text.foregroundColor = UIColor.blueColor().CGColor
+        text.foregroundColor = UIColor.whiteColor().CGColor
         text.alignmentMode = kCAAlignmentCenter
         addSublayer(text)
         
