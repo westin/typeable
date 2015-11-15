@@ -119,8 +119,7 @@
 				3ECBB7DB1BDBB8AA00328B67 /* LaunchScreen.storyboard */,
 				3ECBB7DE1BDBB8AA00328B67 /* Info.plist */,
 			);
-			name = TypeAble;
-			path = "Plum-o-Meter";
+			path = TypeAble;
 			sourceTree = "<group>";
 		};
 		67DA1FC11BF71DAB005014CD /* Headers */ = {
@@ -398,16 +397,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				CODE_SIGN_ENTITLEMENTS = "Plum-o-Meter/Plum-o-Meter.entitlements";
+				CODE_SIGN_ENTITLEMENTS = TypeAble/TypeAble.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				INFOPLIST_FILE = "Plum-o-Meter/Info.plist";
+				INFOPLIST_FILE = TypeAble/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableNick;
 				PRODUCT_NAME = TypeAble;
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Taptic/TypeAble-Bridging-Header.h";
 			};
 			name = Debug;
@@ -416,16 +416,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				CODE_SIGN_ENTITLEMENTS = "Plum-o-Meter/Plum-o-Meter.entitlements";
+				CODE_SIGN_ENTITLEMENTS = TypeAble/TypeAble.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				INFOPLIST_FILE = "Plum-o-Meter/Info.plist";
+				INFOPLIST_FILE = TypeAble/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hackprinceton.typeableNick;
 				PRODUCT_NAME = TypeAble;
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Taptic/TypeAble-Bridging-Header.h";
 			};
 			name = Release;

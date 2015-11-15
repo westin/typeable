@@ -325,7 +325,7 @@ class CircleWithLabel: CAShapeLayer
             }
         }
     }
-    var letters = [0: ["up": "", "farUp": "", "right": "", "farRight": "", "down": "", "farDown": "", "left": "", "farLeft": ""],       1: ["up": "a", "farUp": "b", "right": "c", "farRight": "d", "down": "e", "farDown": "f", "left": "g", "farLeft": "h"],      2: ["up": "i", "farUp": "j", "right": "j", "farRight": "l", "down": "m", "farDown": "n", "left": "o", "farLeft": "p"],      3: ["up": "q", "farUp": "r", "right": "s", "farRight": "t", "down": "u", "farDown": "v", "left": "w", "farLeft": "x"],      4: ["up": "y", "farUp": "z", "right": "c", "farRight": "d", "down": "e", "farDown": "f", "left": "g", "farLeft": "h" ]]
+    var letters = [0: ["up": "", "farUp": "", "right": "", "farRight": "", "down": "", "farDown": "", "left": "", "farLeft": ""],       1: ["up": "a", "farUp": "b", "right": "c", "farRight": "d", "down": "e", "farDown": "f", "left": "g", "farLeft": "h"],      2: ["up": "i", "farUp": "j", "right": "j", "farRight": "l", "down": "m", "farDown": "n", "left": "o", "farLeft": "p"],      3: ["up": "q", "farUp": "r", "right": "s", "farRight": "t", "down": "u", "farDown": "v", "left": "w", "farLeft": "x"],      4: ["up": "y", "farUp": "z", "right": ".", "farRight": ",", "down": "!", "farDown": "?", "left": "(", "farLeft": ")" ]]
     
     let innerLettersBoundary = 100.0
     
