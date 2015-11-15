@@ -81,34 +81,34 @@ class KeyboardViewController: UIInputViewController {
                 if (translation.y >= translation.x) {
                     print("Swipe Down")
                     currentDirection = "down"
-                    distLabel.text = ("Swiping Down \(spot.length) pixels")
+//                    distLabel.text = ("Swiping Down \(spot.length) pixels")
                 }
                 if (translation.y < 0 && abs(translation.y) >= translation.x) {
                     print("Swipe Up")
                     currentDirection = "up"
-                    distLabel.text = ("Swiping Up \(spot.length) pixels")
+//                    distLabel.text = ("Swiping Up \(spot.length) pixels")
                 }
                 if (translation.x > abs(translation.y)) {
                     print("Swipe Right")
                     currentDirection = "right"
-                    distLabel.text = ("Swiping Right \(spot.length) pixels")
+//                    distLabel.text = ("Swiping Right \(spot.length) pixels")
                 }
             }
             else {
                 if (translation.y >= abs(translation.x)) {
                     print("Swipe Down")
                     currentDirection = "down"
-                    distLabel.text = ("Swiping Down \(spot.length) pixels")
+//                    distLabel.text = ("Swiping Down \(spot.length) pixels")
                 }
                 if (translation.y < 0 && abs(translation.y) > abs(translation.x)) {
                     print("Swipe Up")
                     currentDirection = "up"
-                    distLabel.text = ("Swiping Up \(spot.length) pixels")
+//                    distLabel.text = ("Swiping Up \(spot.length) pixels")
                 }
                 if (abs(translation.x) > abs(translation.y)) {
                     print("Swipe Left")
                     currentDirection = "left"
-                    distLabel.text = ("Swiping Left \(spot.length) pixels")
+//                    distLabel.text = ("Swiping Left \(spot.length) pixels")
                 }
             }
             
@@ -245,7 +245,7 @@ class KeyboardViewController: UIInputViewController {
         
         for touch in touches where circles[touch] != nil
         {
-            let circle = circles[touch]!
+//            let circle = circles[touch]!
             
             //            circle.removeFromSuperlayer()
         }

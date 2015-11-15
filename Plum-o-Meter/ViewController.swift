@@ -202,7 +202,7 @@ class ViewController: UIViewController{
         
         for touch in touches where circles[touch] != nil
         {
-            let circle = circles[touch]!
+//            let circle = circles[touch]!
             
             //            circle.removeFromSuperlayer()
         }
