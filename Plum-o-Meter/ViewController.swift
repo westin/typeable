@@ -56,14 +56,6 @@ class ViewController: UIViewController{
         
         var letter = drawLetters("A", xPos: 100.0, yPos: 100.0)
         
-        
-        let speak = AVSpeechUtterance(string: "type able")
-        speak.voice = AVSpeechSynthesisVoice(language: "en-US")
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speakUtterance(speak)
-    
-        
-        
     }
     
     
@@ -132,6 +124,8 @@ class ViewController: UIViewController{
     
     let spot = Distance()
     let box = letterBox()
+    
+    
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
@@ -264,11 +258,18 @@ class ViewController: UIViewController{
     {
         label.frame = view.bounds
     }
-    
-    
-    
-    
 }
+
+
+// -------------
+
+func dictate(text:String) {
+    let speak = AVSpeechUtterance(string: text)
+    speak.voice = AVSpeechSynthesisVoice(language: "en-US")
+    let synthesizer = AVSpeechSynthesizer()
+    synthesizer.speakUtterance(speak)
+}
+
 
 // -------------
 
@@ -326,9 +327,11 @@ class CircleWithLabel: CAShapeLayer
         
         if(direction == "up"){
             if (distance > innerLettersBoundary){
+//                dictate((levelLetters?["farUp"])!)
                 return (levelLetters?["farUp"])!
             }
             else{
+//                dictate((levelLetters?["up"])!)
                 return (levelLetters?["up"])!
             }
             
